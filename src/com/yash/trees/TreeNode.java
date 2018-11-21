@@ -9,4 +9,13 @@ public class TreeNode {
 		val = x;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("TreeNode [val=");
+		builder.append(val);
+		builder.append("]");
+		return builder.toString();
+	}
+
 }
