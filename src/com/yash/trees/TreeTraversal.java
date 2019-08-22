@@ -33,7 +33,7 @@ public class TreeTraversal {
 
 		TreeTraversal preOrderTraversal = new TreeTraversal();
 
-		List<Integer> result = preOrderTraversal.postorderTraversal(root);
+		List<Integer> result = preOrderTraversal.leftView(root);
 		System.out.println(result);
 	}
 
@@ -111,6 +111,23 @@ public class TreeTraversal {
 			}
 			root = stack.pop();
 			root = root.left;
+		}
+		return result;
+	}
+
+	public List<Integer> leftView(TreeNode root) {
+		LinkedList<Integer> result = new LinkedList<Integer>();
+		if (root == null)
+			return result;
+		while (root != null) {
+			result.add(root.val);
+			if (root.left != null) {
+				root = root.left;
+			} else if (root.right != null) {
+				root = root.right;
+			} else {
+				root = null;
+			}
 		}
 		return result;
 	}
